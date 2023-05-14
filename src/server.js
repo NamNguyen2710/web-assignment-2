@@ -20,6 +20,7 @@ app.use(cors({ origin: `http://localhost:${port}` }));
 app.use(helmet());
 app.use(cookieParser());
 app.use(express.json());
+app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 await connectMongoDB();
