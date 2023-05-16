@@ -10,7 +10,8 @@ const orderSchema = mongoose.Schema({
   },
   customer: {
     _customerId: mongoose.Schema.Types.ObjectId,
-    address: { type: String, required: true, trim: true }
+    name: String,
+    address: String
   },
   products: [
     {
