@@ -43,6 +43,13 @@ const userSchema = mongoose.Schema({
     minLength: 5,
     unique: true
   },
+  businessAddress: {
+    type: String,
+    required: () => this.userType === 'vendor',
+    trim: true,
+    minLength: 5,
+    unique: true
+  },
   avatar: String,
   distributionHub: {
     hubId: Number,
