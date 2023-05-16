@@ -4,7 +4,10 @@ import mongoose from 'mongoose';
 import user from './user.mongo';
 
 async function readUserByUserId(userId) {
-  return user.findOne({ _id: mongoose.Types.ObjectId(userId) }, { __v: 0 });
+  return user.findOne(
+    { _id: mongoose.Types.ObjectId(userId) },
+    { __v: 0, password: 0 }
+  );
 }
 
 async function validateLogin(username, password) {
@@ -14,17 +17,19 @@ async function validateLogin(username, password) {
   const checkPassword = await bcrypt.compare(password, result.password);
   if (!checkPassword) throw new Error('Incorrect username or password');
 
-  return result;
+  const returnResult = result.toJSON();
+  delete returnResult.password;
+  return returnResult;
 }
 
 async function updateUserByUserId(newUser) {
   return await user.findOneAndUpdate(
     { _id: mongoose.Types.ObjectId(newUser._id) },
-    newUser,
+    { $set: newUser },
     {
       upsert: true,
       returnDocument: 'after',
-      projection: { __v: 0 }
+      projection: { __v: 0, password: 0 }
     }
   );
 }

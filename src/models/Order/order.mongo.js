@@ -15,7 +15,6 @@ const orderSchema = mongoose.Schema({
   },
   products: [
     {
-      _productId: mongoose.Schema.Types.ObjectId,
       name: String,
       amount: Number,
       price: Number
