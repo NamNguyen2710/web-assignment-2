@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 const productSchema = mongoose.Schema({
-  id: { type: Number, required: true },
   name: {
     type: String,
     required: true,
@@ -11,7 +10,11 @@ const productSchema = mongoose.Schema({
   },
   price: { type: Number, required: true, min: 0 },
   image: { type: String },
-  description: { type: String, maxLength: 500, trim: true }
+  description: { type: String, maxLength: 500, trim: true },
+  owner: {
+    _ownerId: mongoose.Schema.Types.ObjectId,
+    businessName: String
+  }
 });
 
 export default mongoose.model('Product', productSchema);
