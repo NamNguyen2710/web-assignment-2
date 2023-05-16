@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const orderSchema = mongoose.Schema({
+  id: { type: Number, required: true },
   status: {
     type: String,
     required: true,
@@ -19,6 +20,11 @@ const orderSchema = mongoose.Schema({
       price: Number
     }
   ],
+  distributionHub: {
+    hubId: Number,
+    name: String,
+    address: String
+  },
   totalPrice: Number
 });
 
