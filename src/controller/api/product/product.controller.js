@@ -2,7 +2,7 @@ import {
   readProductsByFilter,
   readProductsByOwnerId,
   createProduct
-} from '../../../models/Product/product.model';
+} from '../../../models/Product/product.model.js';
 
 async function httpReadProducts(req, res) {
   if (req.user.type === 'vendor') {

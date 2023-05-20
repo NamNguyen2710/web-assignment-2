@@ -9,6 +9,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import { connectMongoDB } from './utils/mongo.js';
+import router from './controller/router.js';
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -25,12 +26,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 await connectMongoDB();
 
-app.use('/api/*', (req, res) => {
-  res.status(404).json({
-    status: 'fail',
-    message: 'API not found!'
-  });
-});
+app.use('/', router);
 
 const server = app.listen(port, () => {
   console.log(`App running on port ${port}`);

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
-import { loadDistributionHubData } from '../models/DistributionHub/distributionHub.model';
+import { loadDistributionHubData } from '../models/DistributionHub/distributionHub.model.js';
 
 dotenv.config();
 

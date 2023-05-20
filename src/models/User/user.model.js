@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
 
-import user from './user.mongo';
+import user from './user.mongo.js';
 
 async function readUserByUserId(userId) {
   return user.findOne(
@@ -35,7 +35,10 @@ async function updateUserByUserId(newUser) {
 }
 
 async function createUser(newUser) {
-  return await user.create(newUser);
+  const result = await user.create(newUser);
+  const returnResult = result.toJSON();
+  delete returnResult.password;
+  return returnResult;
 }
 
 export { readUserByUserId, validateLogin, updateUserByUserId, createUser };

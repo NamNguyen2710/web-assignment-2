@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-import order from './order.mongo';
+import order from './order.mongo.js';
 
 const DEFAUTL_ORDER_ID = 0;
 
