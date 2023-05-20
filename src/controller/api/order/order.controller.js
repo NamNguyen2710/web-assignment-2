@@ -2,8 +2,8 @@ import {
   readOrderByOrderId,
   updateOrderByOrderId,
   createOrder
-} from '../../../models/Order/order.model';
-import { readAllDistributionHub } from '../../../models/DistributionHub/distributionHub.model';
+} from '../../../models/Order/order.model.js';
+import { readAllDistributionHub } from '../../../models/DistributionHub/distributionHub.model.js';
 
 async function httpCreateOrder(req, res) {
   const newOrder = req.body;
@@ -44,7 +44,8 @@ async function httpCreateOrder(req, res) {
 }
 
 async function httpUpdateOrderStatus(req, res) {
-  const { status, id } = req.body;
+  const { id } = req.params;
+  const { status } = req.body;
 
   const order = await readOrderByOrderId(id);
   if (!order) return res.status(400).json({ error: 'Invalid order ID' });
