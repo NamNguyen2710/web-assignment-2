@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-import order from './order.mongo';
+import order from './order.mongo.js';
 
 const DEFAUTL_ORDER_ID = 0;
 
@@ -29,11 +29,15 @@ async function readLatestOrderId() {
 }
 
 async function updateOrderByOrderId(newOrder) {
-  return await order.findOneAndUpdate({ id: newOrder.id }, newOrder, {
-    upsert: true,
-    returnDocument: 'after',
-    projection: { _id: 0, __v: 0 }
-  });
+  return await order.findOneAndUpdate(
+    { id: newOrder.id },
+    { $set: newOrder },
+    {
+      upsert: true,
+      returnDocument: 'after',
+      projection: { _id: 0, __v: 0 }
+    }
+  );
 }
 
 async function createOrder(orderInfo) {

@@ -1,4 +1,4 @@
-import distributionHub from './distributionHub.mongo';
+import distributionHub from './distributionHub.mongo.js';
 
 async function loadDistributionHubData() {
   const data = [
