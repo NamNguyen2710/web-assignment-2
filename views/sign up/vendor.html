@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <header>
+    </header>
+    <body>
+        <form action="/api/users/signup" method="post" enctype="multipart/form-data">
+            <h1>Username<br>
+            <input id="username" type="text" name="username" value="ABC store"/></h1>
+            <label for="role-select">Choose a role:</label>
+            <select name="roles" id="role-select">
+                <option value="">--Please choose a role--</option>
+                <option value="customer">Customer</option>
+                <option value="shipper">Shipper</option>
+                <option value="vendor">Vendor</option>
+            </select>    
+            <h2>Requirement:</h2>
+            <ol>
+                <li>Only letters (lower and upper case) and digits</li>
+                <li>A length from 8 to 15 characters</li>
+            </ol>
+            <p id="username-error" class="hidden">Enter A Valid Username</p>
+            <h4>Password<br>
+            <input id="password" type="password" name="password" value="qwerty123"/></h4>
+            <h2>Requirement:</h2>
+            <ol>
+                <li>At least one upper case letter</li>
+                <li>At least one lower case letter</li>
+                <li>At least one digit</li>
+                <li>At least one special letter in the set "!@#$%^&*"</li>
+                <li>NO other kind of characters</li>
+                <li>Has a length from 8 to 20 characters</li>
+            </ol>
+            <p id="password-error" class="hidden">Enter A Valid Password</p>
+            <label for="file">Choose file to upload</label>
+            <input type="file" id="file" name="file" multiple/>
+            <h1>Profile Picture</p>
+            <p>Business Name<br>
+            <input type="text" name="Business name" value="ABC Store"></h1>
+            <h1>Business Address<br>
+            <input type="text" name="Business Address" value="Store's Address"></h1>
+        </form>
+        <script src="./signup.js"></script>
+    </body>
+</html>
