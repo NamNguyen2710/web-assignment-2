@@ -9,7 +9,7 @@ const productSchema = mongoose.Schema({
     trim: true
   },
   price: { type: Number, required: true, min: 0 },
-  image: { type: String },
+  images: [String],
   description: { type: String, maxLength: 500, trim: true },
   owner: {
     _ownerId: mongoose.Schema.Types.ObjectId,
