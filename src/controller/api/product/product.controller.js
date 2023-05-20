@@ -32,12 +32,16 @@ async function httpReadProducts(req, res) {
 
 async function httpCreateProduct(req, res) {
   const newProduct = req.body;
+  const { imageNames } = req;
 
   if (!newProduct.name || !newProduct.price || !newProduct.description)
     return res.status(400).json({ err: 'Missing required product property' });
 
   try {
-    const createdProduct = await createProduct(newProduct);
+    const createdProduct = await createProduct({
+      ...newProduct,
+      images: imageNames
+    });
     return res.status(201).json(createdProduct);
   } catch (err) {
     return res.status(500).json({ error: err.message });

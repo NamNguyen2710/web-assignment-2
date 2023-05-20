@@ -5,7 +5,7 @@ import user from './user.mongo.js';
 
 async function readUserByUserId(userId) {
   return user.findOne(
-    { _id: mongoose.Types.ObjectId(userId) },
+    { _id: new mongoose.Types.ObjectId(userId) },
     { __v: 0, password: 0 }
   );
 }
@@ -24,7 +24,7 @@ async function validateLogin(username, password) {
 
 async function updateUserByUserId(newUser) {
   return await user.findOneAndUpdate(
-    { _id: mongoose.Types.ObjectId(newUser._id) },
+    { _id: new mongoose.Types.ObjectId(newUser._id) },
     { $set: newUser },
     {
       upsert: true,
