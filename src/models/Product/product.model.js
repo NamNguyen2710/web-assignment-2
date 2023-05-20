@@ -9,14 +9,17 @@ async function readProductsByFilter(filters) {
 async function readProductsByOwnerId(ownerId) {
   return product
     .find(
-      { 'owner._ownerId': mongoose.Types.ObjectId(ownerId) },
+      { 'owner._ownerId': new mongoose.Types.ObjectId(ownerId) },
       { _id: 0, __v: 0 }
     )
     .sort({ name: 1 });
 }
 
 async function readProductByProductId(prodId) {
-  return product.findOne({ _id: mongoose.Types.ObjectId(prodId) }, { __v: 0 });
+  return product.findOne(
+    { _id: new mongoose.Types.ObjectId(prodId) },
+    { __v: 0 }
+  );
 }
 
 async function createProduct(newProduct) {
