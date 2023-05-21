@@ -58,11 +58,11 @@ async function httpSignup(req, res) {
 }
 
 async function httpUpdateUser(req, res) {
-  const { avatar } = req.body;
+  const { imageName } = req;
   try {
     const updatedUser = await updateUserByUserId({
       _id: req.user['_id'],
-      avatar
+      avatar: imageName
     });
     return res.status(200).json(updatedUser);
   } catch (err) {
@@ -82,6 +82,7 @@ function protectHttp(userRoles) {
       const user = await readUserByUserId(decoded.id);
       if (!user) res.status(401).json({ error: 'Please login to continue' });
 
+      console.log(user, userRoles);
       if (userRoles && userRoles.findIndex(role => role === user.type) === -1)
         return res.status(403).json({ error: 'Unauthorized access' });
 
