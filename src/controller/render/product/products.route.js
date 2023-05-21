@@ -5,7 +5,7 @@ import {
   productListController,
   productDetailController,
   createProductController
-} from './render/products/products.controller.js';
+} from './products.controller.js';
 
 const router = express.Router();
 
