@@ -1,20 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+	<meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>My account</title>
+	<title>My account</title>
 	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
 
-  <link rel="stylesheet" type="text/css" href="/public/css/default.css">
-  <script src="https://kit.fontawesome.com/090ced38b4.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 <body>
-  <%- include('template/header.ejs'); %>
-  <%- include('template/sidebar.ejs', { sidebar: sidebar }); %>
-  
-  <%- include('template/footer.ejs'); %>
+
+	<div class="small-container single-product">
+		<div class="row">
+			<div class="col-2">
+				<img src="https://images2.imgbox.com/d1/f0/cmPjee6Y_o.png" width="100%" />
+				<form class="change-profilepic" method="post" enctype="multipart/form-data">
+					<label for="avatar">
+						<i class="far fa-edit"></i>
+					</label>
+					<input type="file" id="avatar" name="avatar" accept="image/*"/>
+					<button type="submit" font-size="10px">Apply</button>
+				</form>
+			</div>
+			<div class="col-2">
+				<h1>My Account</h1>
+				<h4>Username: <%= user.username %></h4>
+
+				<% if (user.type === 'customer') { %>
+					<h4>Name: <%= user.name %></h4>
+					<h4>Address: <%= user.address %></h4>
+				<% } %>
+
+				<% if (user.type === 'vendor') { %>
+					<h4>Business Name: <%= user.businessName %></h4>
+					<h4>Business Address: <%= user.businessAddress %></h4>
+				<% } %>
+
+				<% if (user.type === 'vendor') { %>
+					<h4>Distribution Hub:</h4>
+					<h5>&#8226; Name: <%= user.distributionHub.name %></h5>
+					<h5>&#8226; Address: <%= user.distributionHub.address %></h5>
+				<% } %>
+			</div>
+		</div>
+	</div>
+
+	<%- include('./template/footer.ejs'); %>
 </body>
 </html>
