@@ -1,5 +1,6 @@
 import {
   readProductsByFilter,
+  readProductsByOwnerId,
   createProduct
 } from '../../../models/Product/product.model.js';
 
