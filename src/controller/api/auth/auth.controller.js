@@ -20,7 +20,7 @@ async function httpLogin(req, res) {
     });
     return res.status(200).json(user);
   } catch (err) {
-    return res.json(400).json({ error: err.message });
+    return res.status(400).json({ error: err.message });
   }
 }
 
@@ -92,41 +92,5 @@ function protectHttp(userRoles) {
     }
   };
 }
-
-function getSidebarObj(req, res, next) {
-  const customerSidebar = [
-    { title: 'My account', url: '/my-account' },
-    { title: 'Search products', url: '/' },
-    { title: 'Shopping cart', url: '/shopping-cart' },
-    { title: 'My orders', url: '/orders' }
-  ];
-  const vendorSidebar = [
-    { title: 'My account', url: '/my-account' },
-    { title: 'My products', url: '/products' },
-    { title: 'Add new product', url: '/products/new' }
-  ];
-  const shipperSidebar = [
-    { title: 'My account', url: '/my-account' },
-    { title: 'Distribution hub orders', url: '/orders' }
-  ];
-
-  switch (req.user.type) {
-    case 'customer':
-      req.sidebar = customerSidebar;
-      break;
-    case 'vendor':
-      req.sidebar = vendorSidebar;
-      break;
-    case 'shipper':
-      req.sidebar = shipperSidebar;
-      break;
-    default:
-      break;
-  }
-}
-
-async function protectRender(req, res) {}
-
-async function renderMyAccount(req, res) {}
 
 export { httpLogin, httpSignup, httpUpdateUser, protectHttp };
