@@ -1,0 +1,21 @@
+/* Order Styles */
+#orders {
+  padding: 20px;
+}
+
+.order-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.order-list li {
+  margin-bottom: 10px;
+}
+
+.order-list li .order-id {
+  font-weight: bold;
+}
+
+.order-list li .order-status {
+  margin-left: 10px;
+}
