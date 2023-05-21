@@ -4,7 +4,8 @@ import authRoutes from './api/auth/auth.route.js';
 import orderRoutes from './api/order/order.route.js';
 import productRoutes from './api/product/product.route.js';
 
-import signupController from './render/signup.controller.js';
+import signupController from './render/user/signup.controller.js';
+import productRenderRoutes from './render/product/products.route.js';
 
 const router = express.Router();
 
@@ -21,5 +22,6 @@ router.use('/api/*', (req, res) => {
 
 router.get('/login', (req, res) => res.render('login.ejs'));
 router.get('/signup', signupController);
+router.use('/products', productRenderRoutes);
 
 export default router;
