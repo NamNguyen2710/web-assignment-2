@@ -4,7 +4,7 @@ import { httpCreateProduct, httpReadProducts } from './product.controller.js';
 
 const router = express.Router();
 router
-  .get(protectHttp(['vendor', 'customer']), httpReadProducts)
+  .get(protectHttp(['customer']), httpReadProducts)
   .post(protectHttp(['vendor']), httpCreateProduct);
 
 export default router;
