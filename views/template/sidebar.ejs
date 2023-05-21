@@ -1,0 +1,10 @@
+<div class="sidebar">
+  <nav>
+    <ul>
+      <% sidebar.forEach(item => { %>
+        <li><a href="<%= item.url %>"><%= item.title %></a></li>
+      <% }); %>
+    </ul>
+  </nav>
+</div>
+<script src="/public/js/sidebar.js"></script>

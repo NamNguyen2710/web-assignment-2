@@ -1,0 +1,114 @@
+/* Global Styles */
+body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+   }
+   
+   /* Header Styles */
+   header {
+     background-color: #f0f0f0;
+     padding: 20px;
+   }
+   
+   /* Navigation Styles */
+   nav {
+     background-color: #333;
+     color: #fff;
+   }
+   
+   nav ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+   }
+   
+   nav ul li {
+     display: inline-block;
+     margin-right: 10px;
+   }
+   
+   nav ul li a {
+     color: #fff;
+     text-decoration: none;
+     padding: 10px;
+   }
+   
+   /* Order Styles */
+   #orders {
+     padding: 20px;
+   }
+   
+   .order-list {
+     list-style-type: none;
+     padding: 0;
+   }
+   
+   .order-list li {
+     margin-bottom: 10px;
+   }
+   
+   .order-list li .order-id {
+     font-weight: bold;
+   }
+   
+   .order-list li .order-status {
+     margin-left: 10px;
+   }
+   
+   /* Order Detail Styles */
+   #order-detail {
+     padding: 20px;
+   }
+   
+   .order-info .order-id {
+     font-weight: bold;
+   }
+   
+   .order-info .order-status {
+     margin-left: 10px;
+   }
+   
+   .customer-info,
+   .shipping-info,
+   .order-items,
+   .shipping-status {
+     margin-bottom: 20px;
+   }
+   
+   .order-items table {
+     width: 100%;
+     border-collapse: collapse;
+   }
+   
+   .order-items th,
+   .order-items td {
+     border: 1px solid #ccc;
+     padding: 5px;
+     text-align: center;
+   }
+   
+   .order-items th {
+     background-color: #f0f0f0;
+   }
+   
+   .shipping-status ul {
+     list-style-type: none;
+     padding: 0;
+   }
+   
+   .shipping-status li {
+     margin-bottom: 10px;
+   }
+   
+   .status-date {
+     font-weight: bold;
+   }
+   
+   /* Footer Styles */
+   footer {
+     background-color: #f0f0f0;
+     padding: 20px;
+     text-align: center;
+   }
+   
