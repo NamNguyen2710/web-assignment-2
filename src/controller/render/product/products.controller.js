@@ -17,13 +17,13 @@ async function productListController(req, res) {
 
 async function productDetailController(req, res) {
   const { id: productId } = req.params;
-  const productDetail = (await readProductByProductId(productId)).toJSON();
+  const productDetail = await readProductByProductId(productId);
   const sidebar = sidebarController(req.user.type);
 
-  return res.render(`${vendor ? 'vendor' : 'shipper'}/productDetail.ejs`, {
+  return res.render(`${vendor ? 'vendor' : 'customer'}/productDetail.ejs`, {
     user: req.user,
     sidebar,
-    productDetail
+    product: productDetail.toJSON()
   });
 }
 

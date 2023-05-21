@@ -5,6 +5,8 @@ import orderRoutes from './api/order/order.route.js';
 import productRoutes from './api/product/product.route.js';
 
 import signupController from './render/user/signup.controller.js';
+import authController from './render/user/auth.controller.js';
+import myAccountController from './render/user/myAccount.controller.js';
 import productRenderRoutes from './render/product/products.route.js';
 import orderRenderRoutes from './render/order/order.route.js';
 
@@ -23,7 +25,12 @@ router.use('/api/*', (req, res) => {
 
 router.get('/login', (req, res) => res.render('login.ejs'));
 router.get('/signup', signupController);
+router.get('/my-account', authController(), myAccountController);
 router.use('/products', productRenderRoutes);
 router.use('/orders', orderRenderRoutes);
+router.get('/cart', authController(['customer']), (req, res) =>
+  res.render('customer/cart.ejs')
+);
+router.use('/*', (req, res) => res.render('404.ejs'));
 
 export default router;
