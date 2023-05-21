@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 page not found</title>
+	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/public/css/404.css">
+</head>
+<body>
+    <img src="/public/image/404.jpg" alt="Sad face">
+    <h1>404</h1>
+    <h2>Page not found</h2>
+    <h3>The Pages you are looking for doesn't exist or an other error occurred</h3>
+    <h3><%= error %></h3>
+
+    <% if (redirectToLogin) { %>
+        <script>
+            setTimeout(() => window.location.assign('/login'), 3000);
+        </script>
+    <% } %>
+</body>
+</html>

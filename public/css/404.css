@@ -1,0 +1,20 @@
+body {
+    display: flex;
+    background-color: #f6f6f6;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+h1 {
+    color: #979696;
+}
+
+h2 {
+    color: #c1bebe;
+}
+
+h3 {
+    color: #d8d4d4;
+}
+
