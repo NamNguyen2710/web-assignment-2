@@ -1,8 +1,8 @@
 import {
   readProductsByOwnerId,
   readProductByProductId
-} from '../../../models/Product/product.model';
-import sidebarController from '../sidebar.controller.js';
+} from '../../../models/Product/product.model.js';
+import sidebarController from '../user/sidebar.controller.js';
 
 async function productListController(req, res) {
   const products = await readProductsByOwnerId(req.user['_id']);

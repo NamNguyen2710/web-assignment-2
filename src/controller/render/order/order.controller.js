@@ -2,8 +2,8 @@ import {
   readOrdersByHubId,
   readOrdersByCustomerId,
   readOrderByOrderId
-} from '../../../models/Order/order.model';
-import sidebarController from '../user/sidebar.controller';
+} from '../../../models/Order/order.model.js';
+import sidebarController from '../user/sidebar.controller.js';
 
 async function orderListController(req, res) {
   const sidebar = sidebarController(req.user.type);
@@ -24,7 +24,11 @@ async function orderDetailController(req, res) {
   const { id: orderId } = req.params;
 
   const orderDetail = await readOrderByOrderId(orderId);
-  return res.render('');
+  return res.render(`${req.user.type}/orderDetail.ejs`, {
+    user: req.user,
+    sidebar,
+    order: orderDetail.toJSON()
+  });
 }
 
 export { orderListController, orderDetailController };
