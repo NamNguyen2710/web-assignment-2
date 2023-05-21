@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping cart</title>
+	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/public/css/customer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
+<body>
+	<%- include('template/customerHeader.ejs'); %>
+
+	<!--Cart Items-->
+	<div class="small-container cart-page">
+		<table>
+			<tr>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Subtotal</th>
+			</tr>
+			<tr>
+				<td>
+					<div class="cart-info">
+						<img src="ui/product1.jpg" height="250px">
+						<div>
+							<p>Casual Slim Polo</p>
+							<small>Price: $37.00</small>
+							<a href="">Remove</a>
+						</div>
+					</div>
+				</td>
+				<td><input type="number" value="1"></td>
+				<td>$37.00</td>
+			</tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="ui/product5.jpg" height="250px">
+                        <div>
+                            <p>Snazzy Cargo Pants</p>
+                            <small>Price: $50.00</small>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>$50.00</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="ui/product4.jpg" height="250px">
+                        <div>
+                            <p>Zixer Running Shoes</p>
+                            <small>Price: $48.00</small>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>$48.00</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="ui/product7.jpg" height="250px">
+                        <div>
+                            <p>Logitech H390 Headset</p>
+                            <small>Price: $30.00</small>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>$30.00</td>
+            </tr>
+        </table>
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>$165.00</td>
+                </tr>
+                <tr>
+                    <td>Shipping fee</td>
+                    <td>$35.00</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>$200.00</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+	
+	<%- include('template/footer.ejs'); %>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Product details - <%= product.name %></title>
+	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
+
+  <link rel="stylesheet" href="/public/css/customer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+<body>
+  <!--Header-->
+  <%- include('template/customerHeader.ejs'); %>
+
+  <div class="small-container single-product">
+    <div class="row">
+      <div class="col-2">
+        <img src="ui/product1.jpg" width="100%">
+      </div>
+
+      <div class="col-2">
+        <p>Home / Casual Slim Polo</p>
+        <h1>Casual Slim Polo</h1>
+        <h4>$37.00</h4>
+        <select>
+            <option>Select Size</option>
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+        </select>
+        <input type="number" value="1">
+        <a href="" class="btn">Add To Cart</a>
+      </div>
+    </div>
+  </div>
+
+  <!--Related products--> 
+  <div class="small-container">
+    <div class="row row-2">
+      <h2>Related Products</h2>
+      <a href="index.html"><p>View More</p></a>
+    </div>
+  </div>
+
+  <div class="small-container">
+    <div class="row">
+      <div class="col-4">
+        <a href="product2.html"><img src="ui/product2.jpg" width="250px" height="250px"></a>
+        <h4>Laptop HP Pavilion</h4>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+        </div>
+        <p>$450.00</p>
+      </div>
+      <div class="col-4">
+        <a href="product3.html"><img src="ui/product3.jpg" width="250px" height="250px"></a>
+        <h4>Casual Fit T-Shirt</h4>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p>$20.00</p>
+      </div>
+      <div class="col-4">
+        <a href="product4.html"><img src="ui/product4.jpg" width="250px" height="250px"></a>
+        <h4>Zixer Running Shoes</h4>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p>$48.00</p>
+      </div>
+      <div class="col-4">
+        <a href="product5.html"><img src="ui/product5.jpg" width="250px" height="250px"></a>
+        <h4>Snazzy Cargo Pants</h4>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="far fa-star"></i>
+        </div>
+        <p>$50.00</p>
+      </div>
+    </div>
+  </div>
+
+  <!--Footer-->
+  <%- include('template/footer.ejs'); %>
+
+</body>
+</head>
+</html>
