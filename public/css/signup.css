@@ -1,3 +1,17 @@
+body{
+  height: 100vh;
+  background: radial-gradient(#fff,#ed6600);
+  font-weight: 100;
+  font-family: 'Rubik', sans-serif;
+  background-repeat: no-repeat;
+}
+.container{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .input-group {
   overflow: hidden;
 }

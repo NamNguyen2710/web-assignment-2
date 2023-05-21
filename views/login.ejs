@@ -7,28 +7,30 @@
 
 	<title>Lazada</title>
 	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
-
-	<link rel="stylesheet" href="/public/css/login.css" href="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/public/css/login.css">
 	<script src="https://kit.fontawesome.com/090ced38b4.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<form action="/api/users/login" method="post" >
-		<img id="logo" src="/public/image/lazada_logo.png" alt="Lazada Logo">
-		<strong id="title">Lazada</strong>
+	<div class="container">
+		<form action="/api/users/login" method="post">
+			<img id="logo" src="/public/img/logo.png" width="200px">
+			<strong id="title">Lazada</strong>
 
-		<div class="input-group">
-			<label for="username">Username</label>
-			<input id="username" name="username" type="text" />
-		</div>
+			<div class="input-group">
+				<label for="username">Username</label>
+				<input id="username" name="username" type="text" />
+			</div>
 
-		<div class="input-group">
-			<label for="password">Password</label>
-			<input id="password" type="password" name="password" />
-		</div>
+			<div class="input-group">
+				<label for="password">Password</label>
+				<input id="password" type="password" name="password" />
+			</div>
 
-		<p id="error-text"></p>
-		<button id="login-button" type="submit">Login</button>
-	</form>
+			<p id="error-text"></p>
+			<button id="login-button" type="submit">Login</button>
+		</form>
+	</div>
 	<script src="/public/js/login.js"></script>
 </body>
 </html>

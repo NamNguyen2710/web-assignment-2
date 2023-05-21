@@ -7,13 +7,15 @@
 
 	<title>Sign Up</title>
 	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="/public/css/signup.css" href="text/css">
   <script src="https://kit.fontawesome.com/090ced38b4.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <h2>Create an Account</h2>
-  <form class="show-customer">
+  <div class="container">
+    <img src="/public/img/logo.png" width="150px">
+    <h2>Create an Account</h2>
+    <form class="show-customer">
     <div class="input-group">
       <label for="username">Username</lable>
       <input id="username" name="username" type="text" />
@@ -65,9 +67,9 @@
     <div class="input-group shipper">
       <label for="distributionHub">Choose a Distribution Hub</label>
       <select name="distributionHub" id="distributionHub">
-        <% distributionHubs.forEach(hub => { %>
-          <option value="<%= hub.id %>"><%= hub.name %></option>
-        <% }); %>
+        % distributionHubs.forEach(hub => { %>
+          <option value="%= hub.id %>">%= hub.name %></option>
+        % }); %>
       </select>
     </div>
     
@@ -83,6 +85,7 @@
 
     <button type="submit">Sign up</button>
   </form>
+  </div>
   <script src="/public/js/signup.js"></script>
 </body>
 </html>
