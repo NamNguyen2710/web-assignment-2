@@ -22,7 +22,7 @@ app.use(helmet());
 app.use(cookieParser());
 app.use(express.json());
 app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use('/public', express.static(path.join(__dirname, '..', 'public')));
 
 await connectMongoDB();
 
