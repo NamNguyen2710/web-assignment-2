@@ -1,0 +1,27 @@
+.input-group {
+  overflow: hidden;
+}
+
+form.show-customer .customer {
+  height: auto;
+}
+form.show-customer .shipper,
+form.show-customer .vendor {
+  height: 0;
+}
+
+form.show-vendor .vendor {
+  height: auto;
+}
+form.show-vendor .shipper,
+form.show-vendor .customer {
+  height: 0;
+}
+
+form.show-shipper .shipper {
+  height: auto;
+}
+form.show-shipper .customer,
+form.show-shipper .vendor {
+  height: 0;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Sign Up</title>
+	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
+  
+	<link rel="stylesheet" href="/public/css/signup.css" href="text/css">
+  <script src="https://kit.fontawesome.com/090ced38b4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <h2>Create an Account</h2>
+  <form class="show-customer">
+    <div class="input-group">
+      <label for="username">Username</lable>
+      <input id="username" name="username" type="text" />
+
+      <ul class="input-validation">
+        <li>Only letters (lower and upper case) and digits</li>
+        <li>A length from 8 to 15 characters</li>
+      </ul>
+    </div>
+    
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" />
+
+      <ul class="input-validation">
+        <li>At least one upper case letter</li>
+        <li>At least one lower case letter</li>
+        <li>At least one digit</li>
+        <li>At least one special letter in the set "!@#$%^&*"</li>
+        <li>No other kind of characters</li>
+        <li>Has a length from 8 to 20 characters</li>
+      </ul>
+    </div>
+
+    <div class="input-group">
+      <label for="image">Choose file to upload</label>
+      <input type="file" id="image" name="image" accept="image/*" />
+    </div>
+
+    <div class="input-group">
+      <label for="type">Choose your role</label>
+      <select name="type" id="type" value="customer">
+        <option value="customer">Customer</option>
+        <option value="shipper">Shipper</option>
+        <option value="vendor">Vendor</option>
+      </select>    
+    </div>
+
+    <div class="input-group customer">
+      <label for="name">Full name</label>
+      <input type="text" id="name" name="name" />
+    </div>
+
+    <div class="input-group customer">
+      <label for="address">Delivery Address</label>
+      <input type="text" id="address" name="address" />
+    </div>
+
+    <div class="input-group shipper">
+      <label for="distributionHub">Choose a Distribution Hub</label>
+      <select name="distributionHub" id="distributionHub">
+        <% distributionHubs.forEach(hub => { %>
+          <option value="<%= hub.id %>"><%= hub.name %></option>
+        <% }); %>
+      </select>
+    </div>
+    
+    <div class="input-group vendor">
+      <label for="businessName">Business Name</label>
+      <input type="text" name="businessName" id="businessName" />
+    </div>
+
+    <div class="input-group vendor">
+      <label for="businessAddress">Business Address</label>
+      <input type="text" name="businessAddress" id="businessAddress" />
+    </div>
+
+    <button type="submit">Sign up</button>
+  </form>
+  <script src="/public/js/signup.js"></script>
+</body>
+</html>
