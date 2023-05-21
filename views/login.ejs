@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Lazada</title>
+	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
+
+	<link rel="stylesheet" href="/public/css/login.css" href="text/css">
+	<script src="https://kit.fontawesome.com/090ced38b4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<form action="/api/users/login" method="post" >
+		<img id="logo" src="/public/image/lazada_logo.png" alt="Lazada Logo">
+		<strong id="title">Lazada</strong>
+
+		<div class="input-group">
+			<label for="username">Username</label>
+			<input id="username" name="username" type="text" />
+		</div>
+
+		<div class="input-group">
+			<label for="password">Password</label>
+			<input id="password" type="password" name="password" />
+		</div>
+
+		<p id="error-text"></p>
+		<button id="login-button" type="submit">Login</button>
+	</form>
+	<script src="/public/js/login.js"></script>
+</body>
+</html>
