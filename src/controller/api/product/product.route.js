@@ -5,7 +5,7 @@ import { uploadImages, handleImages } from '../../../utils/uploadFile.js';
 
 const router = express.Router();
 router
-  .get('/', protectHttp(['vendor', 'customer']), httpReadProducts)
+  .get('/', protectHttp(['customer']), httpReadProducts)
   .post(
     '/',
     protectHttp(['vendor']),
