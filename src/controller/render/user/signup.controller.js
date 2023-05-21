@@ -1,4 +1,4 @@
-import { readAllDistributionHub } from '../../models/DistributionHub/distributionHub.model.js';
+import { readAllDistributionHub } from '../../../models/DistributionHub/distributionHub.model.js';
 
 async function signupController(req, res) {
   const distributionHubs = await readAllDistributionHub();
