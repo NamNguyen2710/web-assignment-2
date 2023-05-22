@@ -1,8 +1,5 @@
 import mongoose from 'mongoose';
-import {
-  readProductsByFilter,
-  createProduct
-} from '../../../models/Product/product.model.js';
+import { createProduct } from '../../../models/Product/product.model.js';
 
 async function httpCreateProduct(req, res) {
   const newProduct = req.body;
