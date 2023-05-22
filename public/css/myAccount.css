@@ -9,10 +9,10 @@
 label {
   cursor: pointer;
 }
-input {
+input#image {
   display: none;
 }
-button {
+button#submit-avatar {
   border-radius: 999px;
   background-color: #10196b;
   color: white;

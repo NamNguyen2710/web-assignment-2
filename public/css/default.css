@@ -68,10 +68,10 @@ a.clear-style:visited {
 }
 .clickable-text {
   cursor: pointer;
-  color: aquamarine;
+  color: #ed6600;
 }
 .clickable-text:hover {
-  color: cadetblue;
+  color: #703101;
 }
 
 .d-flex {
@@ -224,13 +224,16 @@ a.clear-style:visited {
 }
 
 .sidebar-toggle,
-.logout {
+.logout,
+.icon-btn {
   height: 30px;
   width: 30px;
   padding: 5px;
+  cursor: pointer;
 }
 .sidebar-toggle:hover,
-.logout:hover {
+.logout:hover,
+.icon-btn:hover {
   outline: solid gray 2px;
   border-radius: 4px;
 }
@@ -310,4 +313,7 @@ footer hr {
 
 .error-text {
   color: red;
+}
+.hidden {
+  display: none;
 }
