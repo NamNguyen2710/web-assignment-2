@@ -1,0 +1,21 @@
+.row {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.info-col {
+  padding-left: 50px;
+}
+
+label {
+  cursor: pointer;
+}
+input#image {
+  display: none;
+}
+button#submit-avatar {
+  border-radius: 999px;
+  background-color: #10196b;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}

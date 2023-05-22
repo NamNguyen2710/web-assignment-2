@@ -18,8 +18,8 @@ async function httpCreateOrder(req, res) {
     });
 
   if (
-    newOrder.products.reduce(
-      (acc, cur) => acc && cur.name && cur.amount && cur.price,
+    !newOrder.products.reduce(
+      (acc, cur) => acc && Boolean(cur.name && cur.amount && cur.price),
       true
     )
   )
@@ -33,13 +33,21 @@ async function httpCreateOrder(req, res) {
 
     const createdOrder = await createOrder({
       ...newOrder,
-      customer: { ...req.user },
-      distributionHubs: { ...distributionHubs[randomInt] }
+      customer: {
+        _customerId: req.user['_id'],
+        name: req.user.name,
+        address: req.user.address
+      },
+      distributionHub: {
+        hubId: distributionHubs[randomInt].id,
+        name: distributionHubs[randomInt].name,
+        address: distributionHubs[randomInt].address
+      }
     });
 
     return res.status(201).json(createdOrder);
   } catch (err) {
-    return res.json(400).json({ error: err.message });
+    return res.status(400).json({ error: err.message });
   }
 }
 

@@ -9,27 +9,19 @@
 	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/public/css/default.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/customer.css">
   <link rel="stylesheet" type="text/css" href="/public/css/shipper/orderDetail.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 <body>
-  <%- include('../template/header.ejs'); %>
-  <%- include('../template/sidebar.ejs', { sidebar }); %>
+  <%- include('../template/customerHeader.ejs'); %>
 
   <section id="order-detail">
     <h2>Order Details</h2>
     <div class="order-info">
       <span class="order-id">Order ID: #<%= order.id %></span>
-      <span class="order-status">
-        Status:
-        <select id="status-select" value="<%= order.status %>">
-          <option value="active">Active</option>
-          <option value="delivered">Delivered</option>
-          <option value="canceled">Canceled</option>
-        </select>
-        <button id="status-change"><i class="far fa-save"></i></button>
-      </span>
+      <span class="order-status">Status: <%= order.status %></span>
     </div>
     
     <div class="customer-info">
@@ -80,6 +72,5 @@
   </section>
 
   <%- include('../template/footer.ejs'); %>
-  <script src="/public/js/changeOrderStatus.js"></script>
 </body>
 </html>

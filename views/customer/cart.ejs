@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Shopping cart</title>
+	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="/public/css/default.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/customer.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
+<body>
+	<%- include('../template/customerHeader.ejs'); %>
+
+	<!--Cart Items-->
+	<div class="small-container cart-page">
+		<table id="shopping-cart">
+			<tr>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Subtotal</th>
+			</tr>
+		</table>
+		<div class="total-price">
+			<table>
+				<tr>
+					<td>Subtotal</td>
+					<td id="subtotal-price"></td>
+				</tr>
+				<tr>
+					<td>Shipping fee</td>
+					<td>$35.00</td>
+				</tr>
+				<tr>
+					<td>Total</td>
+					<td id="total-price"></td>
+				</tr>
+			</table>
+		</div>
+		<div class="d-flex flex-column align-items-end">
+			<button class="order-btn" id="order">Order</button>
+			<p id="error-text"></p>
+		</div>
+	</div>
+	
+	<%- include('../template/footer.ejs'); %>
+	<script src="/public/js/shoppingCart.js"></script>
+</body>
+</html>

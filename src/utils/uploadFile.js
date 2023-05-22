@@ -28,7 +28,7 @@ const resizeAndSaveImage = async (title, buffer) => {
     filename
   );
 
-  await sharp(buffer).resize(300, null).toFormat('jpeg').toFile(filepath);
+  await sharp(buffer).resize(300, 300).toFormat('jpeg').toFile(filepath);
   return filename;
 };
 

@@ -5,7 +5,7 @@ import {
   productListController,
   productDetailController,
   createProductController
-} from './products.controller.js';
+} from './product.controller.js';
 
 const router = express.Router();
 
@@ -15,6 +15,6 @@ router.get(
   authController(['vendor', 'customer']),
   productDetailController
 );
-router.get('/', authController(['vendor']), productListController);
+router.get('/', authController(['vendor', 'customer']), productListController);
 
 export default router;

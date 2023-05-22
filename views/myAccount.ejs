@@ -1,20 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+	<meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>My account</title>
+	<title>My account</title>
 	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
 
-  <link rel="stylesheet" type="text/css" href="/public/css/default.css">
-  <script src="https://kit.fontawesome.com/090ced38b4.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="/public/css/default.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/myAccount.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/customer.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 <body>
-  <%- include('template/header.ejs'); %>
-  <%- include('template/sidebar.ejs', { sidebar: sidebar }); %>
-  
-  <%- include('template/footer.ejs'); %>
+	<% if (user.type === 'customer') { %>
+		<%- include('template/customerHeader.ejs'); %>
+	<% } else { %>
+		<%- include('template/header.ejs'); %>
+		<%- include('template/sidebar.ejs', { sidebar }); %>
+	<% } %>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-1 col-xl-1 d-flex flex-column align-items-center">
+				<img id="avatar" src="<%= `/public/image/${user.avatar || 'default-avatar.png'}` %>" width="80%" />
+				<form id="avatar-form">
+					<label for="image">
+						<i class="far fa-edit"></i>
+					</label>
+					<input type="file" id="image" name="image" accept="image/*" required />
+					<button id="submit-avatar" type="submit" font-size="10px">Apply</button>
+				</form>
+			</div>
+			<div class="col-md-1 col-xl-2 info-col">
+				<h1>My Account</h1>
+				<h4>Username: <%= user.username %></h4>
+
+				<% if (user.type === 'customer') { %>
+					<h4>Name: <%= user.name %></h4>
+					<h4>Address: <%= user.address %></h4>
+				<% } %>
+
+				<% if (user.type === 'vendor') { %>
+					<h4>Business Name: <%= user.businessName %></h4>
+					<h4>Business Address: <%= user.businessAddress %></h4>
+				<% } %>
+
+				<% if (user.type === 'shipper') { %>
+					<h4>Distribution Hub:</h4>
+					<h5>&#8226; Name: <%= user.distributionHub.name %></h5>
+					<h5>&#8226; Address: <%= user.distributionHub.address %></h5>
+				<% } %>
+			</div>
+		</div>
+	</div>
+
+	<%- include('template/footer.ejs'); %>
+	<script src="/public/js/myAccount.js"></script>
 </body>
 </html>

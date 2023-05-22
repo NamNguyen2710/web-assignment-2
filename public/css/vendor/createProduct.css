@@ -3,6 +3,9 @@
   background-color: #f0f0f0;
   padding: 20px;
 }
+h2 {
+  text-align: center;
+}
 
 form {
   max-width: 400px;
@@ -26,9 +29,11 @@ textarea {
 }
 
 button[type='submit'] {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
+  border-radius: 9999px;
+  padding: 6px 24px;
+  background-color: #ed6600;
+  color: white;
+  font-weight: bold;
+  font-size: 1.8rem;
   cursor: pointer;
 }

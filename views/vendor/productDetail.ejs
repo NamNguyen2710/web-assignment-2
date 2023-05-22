@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Product details - <%= product.name %></title>
+	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
+
+  <link rel="stylesheet" href="/public/css/default.css" type="text/css">
+  <link rel="stylesheet" href="/public/css/customer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+<body>
+  <!--Header-->
+  <%- include('../template/header.ejs'); %>
+  <%- include('../template/sidebar.ejs', { sidebar }); %>
+
+  <div class="small-container single-product">
+    <div class="row">
+      <div class="col-2">
+        <img src="/public/image/<%= product.images[0] %>" width="100%" />
+      </div>
+
+      <div class="col-2">
+        <p>Home / <%= product.name %></p>
+        <h1><%= product.name %></h1>
+        <h4>$<%= product.price %></h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="small-container single-product">
+    <div class="row">
+      <h3>Description</h3>
+      <p><%= product.description %></p>
+    </div>
+  </div>
+  <br />
+
+  <!--Footer-->
+  <%- include('../template/footer.ejs'); %>
+</body>
+</head>
+</html>
