@@ -14,7 +14,9 @@
     <h1>404</h1>
     <h2>Page not found</h2>
     <h3>The Pages you are looking for doesn't exist or an other error occurred</h3>
-    <h3><%= error %></h3>
+    <% if (error) { %>
+        <h3><%= error %></h3>
+    <% } %>
 
     <% if (redirectToLogin) { %>
         <script src="/public/js/404.js"></script>

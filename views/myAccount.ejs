@@ -8,25 +8,31 @@
 	<title>My account</title>
 	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
 
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/default.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/myAccount.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 <body>
+	<% if (user.type === 'customer') { %>
+		<%- include('template/customerHeader.ejs'); %>
+	<% } else { %>
+		<%- include('template/header.ejs'); %>
+	<% } %>
 
-	<div class="small-container single-product">
+	<div class="container">
 		<div class="row">
-			<div class="col-2">
-				<img src="https://images2.imgbox.com/d1/f0/cmPjee6Y_o.png" width="100%" />
-				<form class="change-profilepic" method="post" enctype="multipart/form-data">
-					<label for="avatar">
+			<div class="col-md-1 col-xl-1 d-flex flex-column align-items-center">
+				<img id="avatar" src="<%= `/public/image/${user.avatar || 'default-avatar.png'}` %>" width="80%" />
+				<form>
+					<label for="image">
 						<i class="far fa-edit"></i>
 					</label>
-					<input type="file" id="avatar" name="avatar" accept="image/*"/>
+					<input type="file" id="image" name="image" accept="image/*" required />
 					<button type="submit" font-size="10px">Apply</button>
 				</form>
 			</div>
-			<div class="col-2">
+			<div class="col-md-1 col-xl-2 info-col">
 				<h1>My Account</h1>
 				<h4>Username: <%= user.username %></h4>
 
@@ -40,7 +46,7 @@
 					<h4>Business Address: <%= user.businessAddress %></h4>
 				<% } %>
 
-				<% if (user.type === 'vendor') { %>
+				<% if (user.type === 'shipper') { %>
 					<h4>Distribution Hub:</h4>
 					<h5>&#8226; Name: <%= user.distributionHub.name %></h5>
 					<h5>&#8226; Address: <%= user.distributionHub.address %></h5>
@@ -50,5 +56,6 @@
 	</div>
 
 	<%- include('./template/footer.ejs'); %>
+	<script src="/public/js/myAccount.js"></script>
 </body>
 </html>

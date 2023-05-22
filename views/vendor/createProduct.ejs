@@ -8,9 +8,15 @@
   <title>Add new product</title>
 	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
 
+  <link rel="stylesheet" href="/public/css/default.css" type="text/css">
   <link rel="stylesheet" href="/public/css/vendor/createProduct.css" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 <body>
+  <%- include('../template/header.ejs', { user }); %>
+  <%- include('../template/sidebar.ejs', { sidebar }); %>
+
   <section id="add-product">
     <h2>Add New Product</h2>
     <form>
@@ -37,5 +43,7 @@
       <button type="submit">Add Product</button>
     </form>
   </section>
+
+  <%- include('../template/footer.ejs'); %>
 </body>
 </html>
