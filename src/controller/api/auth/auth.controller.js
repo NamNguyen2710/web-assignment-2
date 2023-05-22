@@ -94,4 +94,12 @@ function protectHttp(userRoles) {
   };
 }
 
-export { httpLogin, httpSignup, httpUpdateUser, protectHttp };
+function httpLogout(req, res) {
+  res.cookie('jwt', 'loggedout', {
+    expires: new Date(Date.now()),
+    httpOnly: true
+  });
+  res.status(200).json({ status: 'success' });
+}
+
+export { httpLogin, httpLogout, httpSignup, httpUpdateUser, protectHttp };
