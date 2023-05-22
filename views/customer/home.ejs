@@ -56,101 +56,22 @@
 	<div class="small-container">
 		<h2 id="Products" class="title">Featured Products</h2>
 			<div class="row">
-				<div class="col-4">
-					<a href="product1.html"><img src="ui/product1.jpg" width="250px" height="250px"></a>
-					<h4>Casual Slim Polo</h4>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-					</div>
-					<p>$37.00</p>
-				</div>
-            <div class="col-4">
-                <a href="product2.html"><img src="ui/product2.jpg" width="250px" height="250px"></a>
-                <h4>Laptop HP Pavilion</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <p>$450.00</p>
-            </div>
-            <div class="col-4">
-                <a href="product3.html"><img src="ui/product3.jpg" width="250px" height="250px"></a>
-                <h4>Casual Fit T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>$20.00</p>
-            </div>
-            <div class="col-4">
-                <a href="product4.html"><img src="ui/product4.jpg" width="250px" height="250px"></a>
-                <h4>Zixer Running Shoes</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>$48.00</p>
-            </div>
-            <div class="col-4">
-                <a href="product5.html"><img src="ui/product5.jpg" width="250px" height="250px"></a>
-                <h4>Snazzy Cargo Pants</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <a href="product6.html"><img src="ui/product6.jpg" width="250px" height="250px"></a>
-                <h4>Bruton Sport Shoes</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>$74.00</p>
-            </div>
-            <div class="col-4">
-                <a href="product7.html"><img src="ui/product7.jpg" width="250px" height="250px"></a>
-                <h4>Logitech H390 Headset</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <p>$30.00</p>
-            </div>
-            <div class="col-4">
-                <a href="product8.html"><img src="ui/product8.jpg" width="250px" height="250px"></a>
-                <h4>AmazonBasic Wireless Mouse</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>$12.00</p>
+                <% products.forEach(prod => { %>
+                    <div class="col-4">
+                        <a href="/products/<%= prod['_id'] %>">
+                          <img src="/public/image/<%= prod.images[0] %>" width="250px" height="250px">
+                        </a>
+                        <h4><%= prod.name %></h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p>$<%= Number(prod.price).toFixed(2) %></p>
+                      </div>
+                <% }); %>
             </div>
         </div>
 	</div>

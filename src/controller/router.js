@@ -6,6 +6,7 @@ import productRoutes from './api/product/product.route.js';
 
 import signupController from './render/user/signup.controller.js';
 import authController from './render/user/auth.controller.js';
+import homepageController from './render/user/hompage.controller.js';
 import myAccountController from './render/user/myAccount.controller.js';
 import productRenderRoutes from './render/product/product.route.js';
 import orderRenderRoutes from './render/order/order.route.js';
@@ -31,10 +32,7 @@ router.use('/orders', orderRenderRoutes);
 router.get('/cart', authController(['customer']), (req, res) =>
   res.render('customer/cart.ejs')
 );
-router.get('/', authController(), (req, res) => {
-  if (req.user.type === 'customer') return res.render('customer/home.ejs');
-  return res.redirect('/my-account');
-});
+router.get('/', authController(), homepageController);
 router.use('/*', (req, res) =>
   res.render('404.ejs', { error: null, redirectToLogin: false })
 );

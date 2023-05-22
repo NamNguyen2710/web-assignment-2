@@ -40,6 +40,8 @@ async function productDetailController(req, res) {
   const productDetail = await readProductByProductId(productId);
   const sidebar = sidebarController(req.user.type);
 
+  const products = await readProductsByFilter({}, 4);
+
   return res
     .set(
       'Content-Security-Policy',
@@ -48,7 +50,8 @@ async function productDetailController(req, res) {
     .render(`${req.user.type}/productDetail.ejs`, {
       user: req.user,
       sidebar,
-      product: productDetail.toJSON()
+      product: productDetail.toJSON(),
+      products
     });
 }
 

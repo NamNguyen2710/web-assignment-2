@@ -26,7 +26,7 @@
       <div class="col-2">
         <p>Home / <%= product.name %></p>
         <h1><%= product.name %></h1>
-        <h4>$<%= product.price %></h4>
+        <h4>$<%= Number(product.price).toFixed(2) %></h4>
         <input id="amount" type="number" value="1" />
         <button id="add-to-cart" class="btn">Add To Cart</button>
       </div>
@@ -51,54 +51,22 @@
 
   <div class="small-container">
     <div class="row">
-      <div class="col-4">
-        <a href="product2.html"><img src="ui/product2.jpg" width="250px" height="250px"></a>
-        <h4>Laptop HP Pavilion</h4>
-        <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
+      <% products.forEach(prod => { %>
+        <div class="col-4">
+          <a href="/products/<%= prod['_id'] %>">
+            <img src="/public/image/<%= prod.images[0] %>" width="250px" height="250px">
+          </a>
+          <h4><%= prod.name %></h4>
+          <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+          </div>
+          <p>$<%= Number(prod.price).toFixed(2) %></p>
         </div>
-        <p>$450.00</p>
-      </div>
-      <div class="col-4">
-        <a href="product3.html"><img src="ui/product3.jpg" width="250px" height="250px"></a>
-        <h4>Casual Fit T-Shirt</h4>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="far fa-star"></i>
-        </div>
-        <p>$20.00</p>
-      </div>
-      <div class="col-4">
-        <a href="product4.html"><img src="ui/product4.jpg" width="250px" height="250px"></a>
-        <h4>Zixer Running Shoes</h4>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="far fa-star"></i>
-        </div>
-        <p>$48.00</p>
-      </div>
-      <div class="col-4">
-        <a href="product5.html"><img src="ui/product5.jpg" width="250px" height="250px"></a>
-        <h4>Snazzy Cargo Pants</h4>
-        <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="far fa-star"></i>
-        </div>
-        <p>$50.00</p>
-      </div>
+      <% }); %>
     </div>
   </div>
   <p id="product-data-text" class="hidden"><%= JSON.stringify(product) %></p>
