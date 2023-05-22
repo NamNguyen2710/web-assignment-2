@@ -8,44 +8,27 @@
 	<title>Lazada Website</title>
 	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
 
+	<link rel="stylesheet" type="text/css" href="/public/css/default.css">
 	<link rel="stylesheet" type="text/css" href="/public/css/customer.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap">
 <body>
 <!--Header-->
 	<div id="Home" class="header">
-    <div class="container">
-    	<div class="navbar">
-        <div class="logo">
-					<img src="ui/logo.png" width="125px">
-        </div>
+        <div class="container">
+            <%- include('../template/customerHeader.ejs') %>
 
-        <form action="" class="search-bar">
-					<input type="text" placeholder="Search..." name="q" >
-					<button type="submit"><img src="ui/search.png"></button>
-        </form>
-
-        <nav>
-					<ul>
-						<li><a href="#Home">Home</a></li>
-						<li><a href="#Products">Products</a></li>
-						<li><a href="">My Account</a></li>
-						<li><a href="">My Cart <i class="fas fa-shopping-cart"></i></a></li>
-					</ul>
-        </nav>
-    	</div>
-
-    	<div class="row">
-        <div class="col-2">
+    	    <div class="row">
+                <div class="col-2">
 					<h1>Summer Sale<br>Up to 30% Off</h1>
 					<p>Everything you need. All in one place.<br>#1 best-selling ecommerce platform.</p>
 					<a href="#Products" class="btn">Get Started! &#10095</a>
+                </div>
+                <div class="col-2">
+					<img src="/public/image/image2.png">
+                </div>
+    	    </div>
         </div>
-        <div class="col-2">
-					<img src="ui/image2.png">
-        </div>
-    	</div>
-    </div>
 	</div>
 
 	<!--Featured categories-->   
@@ -54,15 +37,15 @@
 			<h2 class="title">Featured Categories</h2>
 			<div class="row">
 				<div class="col-3">
-					<img src="ui/category1.jpg">
+					<img src="/public/image/category1.jpg">
 					<h3>Clothes</h3>
 				</div>
 				<div class="col-3">
-					<img src="ui/category2.jpg">
+					<img src="/public/image/category2.jpg">
 					<h3>Shoes</h3>
 				</div>
 				<div class="col-3">
-					<img src="ui/category3.jpg">
+					<img src="/public/image/category3.jpg">
 					<h3>Electronics</h3>
 				</div>
 			</div>
@@ -174,42 +157,23 @@
 
 	<!--Exclusive Offer-->
 	<div class="offer">
-    <div class="small-container">
+        <div class="small-container">
 			<div class="row">
 				<div class="col-2">
-					<img src="ui/smartwatch.png" class="offer-img">
+					<img src="/public/image/smartwatch.png" class="offer-img">
 				</div>
 				<div class="col-2">
 					<p>Excluse Offer Now On Lazada</p>
 					<h1>LEMFO WS8 MAX Smartwatch Series 8</h1>
 					<small>With the LEMFO WS8 MAX, you can enjoy your time on the road in a smart watch.<br>Equipped with auto-shut off function, you can always track your time and keep track of your time without having to take it off.<br></small>
-					<a href="smartwatch.html" class="btn">Buy Now &#10095</a>
+					<a href="/products/1" class="btn">Buy Now &#10095</a>
 				</div>
 			</div>
     </div>
 	</div>
 
 	<!--Footer-->
-	<div class="footer">
-    <div class="container">
-			<div class="row">
-				<div class="footer-col-1">
-					<h3>Download Our App</h3>
-					<p>Available for both Andriod and IOS.</p>
-					<div class="applogo">
-							<img src="ui/appstore.png" height="50px">
-							<img src="ui/googleplay.png" height="50px">
-					</div>
-				</div>
-				<div class="footer-col-2">
-					<img src="ui/logo2.png" width="200px">
-					<p>Go Where Your Heart Beats<br>Add to cart. Add to life.</p>
-				</div>
-			</div>
-			<hr>
-			<p class="copyright">Copyright 2023 - Random Group 1</p>
-		</div>
-	</div>
+	<%- include('../template/footer.ejs'); %>
 </body>
 </head>
 </html>

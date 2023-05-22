@@ -32,7 +32,7 @@ router.get('/cart', authController(['customer']), (req, res) =>
   res.render('customer/cart.ejs')
 );
 router.get('/', authController(), (req, res) => {
-  if (req.user === 'customer') return res.render('customer/home.ejs');
+  if (req.user.type === 'customer') return res.render('customer/home.ejs');
   return res.redirect('/my-account');
 });
 router.use('/*', (req, res) =>
