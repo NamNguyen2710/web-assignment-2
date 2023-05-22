@@ -1,5 +1,5 @@
 const form = document.querySelector('form');
-const errorText = document.querySelector('p#error-text');
+const errorText = document.querySelector('small.error-text');
 
 form.addEventListener('submit', e => {
   e.preventDefault();

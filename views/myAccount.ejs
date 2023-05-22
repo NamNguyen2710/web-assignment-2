@@ -19,18 +19,19 @@
 		<%- include('template/customerHeader.ejs'); %>
 	<% } else { %>
 		<%- include('template/header.ejs'); %>
+		<%- include('template/sidebar.ejs', { sidebar }); %>
 	<% } %>
 
 	<div class="container">
 		<div class="row">
 			<div class="col-md-1 col-xl-1 d-flex flex-column align-items-center">
 				<img id="avatar" src="<%= `/public/image/${user.avatar || 'default-avatar.png'}` %>" width="80%" />
-				<form>
+				<form id="avatar-form">
 					<label for="image">
 						<i class="far fa-edit"></i>
 					</label>
 					<input type="file" id="image" name="image" accept="image/*" required />
-					<button type="submit" font-size="10px">Apply</button>
+					<button id="submit-avatar" type="submit" font-size="10px">Apply</button>
 				</form>
 			</div>
 			<div class="col-md-1 col-xl-2 info-col">
@@ -56,7 +57,7 @@
 		</div>
 	</div>
 
-	<%- include('./template/footer.ejs'); %>
+	<%- include('template/footer.ejs'); %>
 	<script src="/public/js/myAccount.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 const form = document.querySelector('form');
 const typeSelect = document.querySelector('select#type');
-const errorText = document.querySelector('p.error-text');
+const errorText = document.querySelector('small.error-text');
 
 typeSelect.addEventListener('change', e => {
   switch (e.target.value) {

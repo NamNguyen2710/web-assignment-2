@@ -8,27 +8,34 @@
   <title>Order detail</title>
 	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
 
+	<link rel="stylesheet" type="text/css" href="/public/css/default.css">
   <link rel="stylesheet" type="text/css" href="/public/css/shipper/orderDetail.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 <body>
+  <%- include('../template/header.ejs'); %>
+  <%- include('../template/sidebar.ejs', { sidebar }); %>
+
   <section id="order-detail">
     <h2>Order Details</h2>
     <div class="order-info">
-      <span class="order-id">Order ID: #123456789</span>
-      <span class="order-status">Status: Shipped</span>
+      <span class="order-id">Order ID: #<%= order.id %></span>
+      <span class="order-status">
+        Status:
+        <select id="status-select" value="<%= order.status %>">
+          <option value="active">Active</option>
+          <option value="delivered">Delivered</option>
+          <option value="canceled">Canceled</option>
+        </select>
+        <button id="status-change"><i class="far fa-save"></i></button>
+      </span>
     </div>
     
     <div class="customer-info">
       <h3>Customer Information</h3>
-      <p>Name: John Doe</p>
-      <p>Email: johndoe@example.com</p>
-      <p>Phone: 123-456-7890</p>
-    </div>
-    
-    <div class="shipping-info">
-      <h3>Shipping Information</h3>
-      <p>Address: 123 Main St, City, Country</p>
-      <p>Postal Code: 12345</p>
+      <p>Name: <%= order.customer.name %></p>
+      <p>Address: <%= order.customer.address %></p>
     </div>
     
     <div class="order-items">
@@ -39,36 +46,40 @@
           <th>Quantity</th>
           <th>Price</th>
         </tr>
-        <tr>
-          <td>Product 1</td>
-          <td>2</td>
-          <td>$19.99</td>
-        </tr>
-        <tr>
-          <td>Product 2</td>
-          <td>1</td>
-          <td>$14.99</td>
-        </tr>
+        <% order.products.forEach(product => { %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.amount %></td>
+            <td>$<%= product.price %></td>
+          </tr>
+        <% }); %>
       </table>
+      <div class="total-price">
+        <table>
+          <tr>
+            <td>Subtotal</td>
+            <td id="subtotal-price"><%= (order.totalPrice - 35).toFixed(2) %></td>
+          </tr>
+          <tr>
+            <td>Shipping fee</td>
+            <td>$35.00</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td id="total-price">$<%= order.totalPrice.toFixed(2) %></td>
+          </tr>
+        </table>
+      </div>
     </div>
     
     <div class="shipping-status">
-      <h3>Shipping Status</h3>
-      <ul>
-        <li>
-          <span class="status-date">2023-05-15</span>
-          <span class="status-description">Shipment received</span>
-        </li>
-        <li>
-          <span class="status-date">2023-05-16</span>
-          <span class="status-description">Out for delivery</span>
-        </li>
-        <li>
-          <span class="status-date">2023-05-17</span>
-          <span class="status-description">Delivered</span>
-        </li>
-      </ul>
+      <h3>Distribution hub:</h3>
+      <p>Name: <%= order.distributionHub.name %></p>
+      <p>Address: <%= order.distributionHub.address %></p>
     </div>
   </section>
+
+  <%- include('../template/footer.ejs'); %>
+  <script src="/public/js/changeOrderStatus.js"></script>
 </body>
 </html>
