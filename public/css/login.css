@@ -1,490 +1,123 @@
-@media only screen and (max-width:768px) {
-    body {
-        background: radial-gradient(#fff,#ed6600);
-        font-size: small;
-        font-family: 'Geometric Sans Serif v1', sans-serif;
-    }
-
-    #login-box {
-        width: 300px;
-        display: flex;
-        flex-direction: column;
-        background-color: #efebeb;
-        border: solid #9b9797;
-        border-radius: 10px;
-        font-family: 'Geometric Sans Serif v1', sans-serif;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    
-    #logo {
-        width: 65px;
-        position: relative;
-        left: 50%;
-        transform: translate(-50%);
-        margin:5px;
-    }
-    
-    #login-button {
-        max-width:50px;
-        border-radius: 10px;
-        margin:5px;
-        position: relative;
-        left: 50%;
-        font-family: 'Geometric Sans Serif v1', sans-serif;
-        transform: translate(-50%);
-        
-    }
-    
-    #title {
-        position: relative;
-        left: 128px;
-        font-family: 'Geometric Sans Serif v1', sans-serif;
-    }
-    
-    #username-input {
-        border-color: #9b9797;
-        margin:5px;
-    }
-    
-    
-    #password-input {
-        border-color: #9b9797;
-        margin:5px;
-    }
-    
-    #username-icon, #password-icon {
-        width: 20px;
-        height: 20px;
-        margin: 5px;
-    }
-    
-    .hidden {
-        display: none;
-    }
-    
-    .sidenav {
-        height: 100%; 
-        width: 0; 
-        position: fixed; 
-        top: 45px;
-        background-color: #111; 
-        overflow-x: hidden;
-        padding-top: 20px; 
-        transition: 0.5s;
-        border-radius: 5px;
-    }
-    
-    .sidenav a {
-        padding-left: 20px;
-        padding-top: 15px;
-        text-decoration: none;
-        
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-    }
-    
-    .sidenav a:hover {
-      color: #f1f1f1;
-    }
-    
-    #main {
-      transition: margin-left .5s;
-      padding: 20px;
-    }
-
-    #sidebar {
-        font-size:30px;
-        cursor:pointer;
-        width: 40px;
-    }
-    
-    #username-icon2 {
-        position: fixed;
-        width: 15px;
-        height: 15px;
-        margin: 5px;
-        right: 114px;
-        top: 5px;
-    }
-    
-    .signout a:hover {
-        color: #f1f1f1;
-    }
-    
-    
-    #name {
-        position: fixed;
-        top: 10px;
-        right: 20px;
-        color: #818181;
-    }
-    
-    .signout {
-        height: 0; 
-        position: fixed; 
-        top: 45px;
-        transition: 0.5s; 
-        right: 20px;
-        overflow: hidden;
-    }
-    
-    .signout a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        color: #818181;
-        transition: 0.3s;
-      }
-    
-    .login a:link { 
-        text-decoration: none; 
-      }
-    
-    .login a:visited { 
-        text-decoration: none; 
-      }
-      
-    .login a:hover { 
-        text-decoration: none; 
-      }
-      
-    .login a:active { 
-        text-decoration: none; 
-      }
+body {
+  background: radial-gradient(#fff, #ed6600);
+  background-repeat: no-repeat;
 }
 
+.login-box {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 
-@media only screen and (min-width:768px) {
-    body {
-        background: radial-gradient(#fff,#ed6600);
-        font-size: medium;
-        font-family: 'Geometric Sans Serif v1', sans-serif;
-    }
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    #login-box {
-        width: 300px;
-        display: flex;
-        flex-direction: column;
-        background-color: #efebeb;
-        border: solid #9b9797;
-        border-radius: 10px;
-        font-family: 'Geometric Sans Serif v1', sans-serif;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    
-    #logo {
-        width: 65px;
-        position: relative;
-        left: 50%;
-        transform: translate(-50%);
-        margin:5px;
-    }
-    
-    #login-button {
-        max-width:50px;
-        border-radius: 10px;
-        margin:5px;
-        position: relative;
-        left: 50%;
-        font-family: 'Geometric Sans Serif v1', sans-serif;
-        transform: translate(-50%);
-    }
-    
-    #title {
-        position: relative;
-        left: 128px;
-        font-family: 'Geometric Sans Serif v1', sans-serif;
-    }
-    
-    #username-input {
-        border-color: #9b9797;
-        margin:5px;
-    }
-    
-    
-    #password-input {
-        border-color: #9b9797;
-        margin:5px;
-    }
-    
-    #username-icon, #password-icon {
-        width: 20px;
-        height: 20px;
-        margin: 5px;
-    }
-    
-    .hidden {
-        display: none;
-    }
-    
-    .sidenav {
-        height: 100%; 
-        width: 0; 
-        position: fixed; 
-        top: 45px;
-        background-color: #111; 
-        overflow-x: hidden;
-        padding-top: 20px; 
-        transition: 0.5s;
-        border-radius: 5px;
-    }
-    
-    .sidenav a {
-        padding-left: 25px;
-        padding-top: 20px;
-        text-decoration: none;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-    }
-    
-    .sidenav a:hover {
-      color: #f1f1f1;
-    }
-    
-    #main {
-      transition: margin-left .5s;
-      padding: 20px;
-    }
-    
-    .sidenav {
-        padding-top: 15px;
-    }
-    .sidenav a {
-        font-size: 18px;
-    }
-    
-    #sidebar {
-        font-size:30px;
-        cursor:pointer;
-        width: 40px;
-    }
-    
-    #username-icon2 {
-        position: fixed;
-        width: 18px;
-        height: 18px;
-        margin: 5px;
-        right: 137px;
-        top: 5px;
-    }
-    
-    .signout a:hover {
-        color: #f1f1f1;
-    }
-    
-    
-    #name {
-        position: fixed;
-        top: 10px;
-        right: 20px;
-        color: #818181;
-    }
-    
-    .signout {
-        height: 0;
-        position: fixed; 
-        top: 45px;
-        transition: 0.5s; 
-        right: 20px;
-        overflow: hidden;
-    }
-    
-    
-    .signout a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        color: #818181;
-        transition: 0.3s;
-      }
-    
-    .login a:link { 
-        text-decoration: none; 
-      }
-    
-    
-    .login a:visited { 
-        text-decoration: none; 
-      }
-      
-      
-    .login a:hover { 
-        text-decoration: none; 
-      }
-      
-      
-    .login a:active { 
-        text-decoration: none; 
-      }
+  border-radius: 5px;
+  padding: 60px;
+  background-color: whitesmoke;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
 }
 
-
-@media only screen and (min-width:1024px) {
-    body {
-        background: radial-gradient(#fff,#ed6600);
-        font-size: large;
-        font-family: 'Geometric Sans Serif v1', sans-serif;
-    }
-    #login-box {
-        width: 300px;
-        display: flex;
-        flex-direction: column;
-        background-color: #efebeb;
-        border: solid #9b9797;
-        border-radius: 10px;
-        font-family: 'Geometric Sans Serif v1', sans-serif;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    
-    
-    #logo {
-        width: 65px;
-        position: relative;
-        left: 50%;
-        transform: translate(-50%);
-        margin:5px;
-    }
-    
-    #login-button {
-        max-width:50px;
-        border-radius: 10px;
-        margin:5px;
-        position: relative;
-        left: 50%;
-        transform: translate(-50%);   
-    }
-    
-    #title {
-        position: relative;
-        left: 128px;
-        font-family: 'Geometric Sans Serif v1', sans-serif;
-    }
-    
-    #username-input {
-        border-color: #9b9797;
-        margin:5px;
-    }
-    
-    
-    #password-input {
-        border-color: #9b9797;
-        margin:5px;
-    }
-    
-    #username-icon, #password-icon {
-        width: 20px;
-        height: 20px;
-        margin: 5px;
-    }
-    
-    .sidenav {
-        height: 100%; 
-        width: 0; 
-        position: fixed; 
-        top: 45px;
-        background-color: #111; 
-        overflow-x: hidden;
-        padding-top: 20px; 
-        transition: 0.5s;
-        border-radius: 5px;
-    }
-    
-    .sidenav a {
-        padding-left: 30px;
-        padding-top: 30px;
-        text-decoration: none;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-    }
-    
-    .sidenav a:hover {
-      color: #f1f1f1;
-    }
-    
-    #main {
-      transition: margin-left .5s;
-      padding: 20px;
-    }
-    
-    #sidenav {
-        padding-top: 15px;
-    }
-
-    #sidebar {
-        font-size:30px;
-        cursor:pointer;
-        width: 40px;
-    }
-    
-    #username-icon2 {
-        position: fixed;
-        width: 21px;
-        height: 21px;
-        margin: 5px;
-        right: 154px;
-        top: 5px;
-    }
-    
-    .signout a:hover {
-        color: #f1f1f1;
-    }
-    
-    #name {
-        position: fixed;
-        top: 10px;
-        right: 20px;
-        color: #818181;
-    }
-    
-    .signout {
-        height: 0; 
-        position: fixed; 
-        top: 45px;
-        transition: 0.5s; 
-        right: 20px;
-        overflow: hidden;
-    }
-    
-    .signout a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        color: #818181;
-        transition: 0.3s;
-      }
-    
-    .login a:link { 
-        text-decoration: none; 
-      }
-    
-    
-    .login a:visited { 
-        text-decoration: none; 
-      }
-      
-    .login a:hover { 
-        text-decoration: none; 
-      }
-      
-      
-    .login a:active { 
-        text-decoration: none; 
-      }
+.logo {
+  width: 200px;
 }
 
-.login a:hover {
-    color: #f1f1f1;
+.title {
+  color: #10196b;
+  margin: 10px 0;
+}
+
+.input-group {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.input-group label {
+  width: 20%;
+}
+
+.username-input,
+.password-input {
+  border: solid #c9c9c9 0.5px;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.error-text {
+  color: red;
+}
+
+.login-button {
+  border-radius: 9999px;
+  padding: 6px 24px;
+  background-color: #ed6600;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 .hidden {
-    display: none;
+  display: none;
+}
+
+.main {
+  transition: margin-left 0.5s;
+  padding: 20px;
+}
+
+.username-icon2 {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  right: 114px;
+  top: 5px;
+}
+
+.signout a:hover {
+  color: #f1f1f1;
+}
+
+.name {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  color: #818181;
+}
+
+.signout {
+  height: 0;
+  position: fixed;
+  top: 45px;
+  transition: 0.5s;
+  right: 20px;
+  overflow: hidden;
+}
+
+.signout a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  color: #818181;
+  transition: 0.3s;
+}
+
+.login a:link {
+  text-decoration: none;
+}
+
+.login a:visited {
+  text-decoration: none;
+}
+
+.login a:hover {
+  text-decoration: none;
+}
+
+.login a:active {
+  text-decoration: none;
 }

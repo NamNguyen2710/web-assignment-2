@@ -11,13 +11,12 @@
   background: transparent;
 }
 
-html {
-  color-scheme: light dark;
-}
-
 body {
-  font-family: Noto Sans, Trebuchet MS, Helvetica Neue, Arial, sans-serif;
+  font-family: 'Rubik', sans-serif;
   line-height: 1.5;
+  min-height: 100vh;
+  position: relative;
+  padding-top: 50px;
 }
 
 h1 {
@@ -35,7 +34,9 @@ h4 {
 h5 {
   font-size: 1.8rem;
 }
-p {
+p,
+label,
+a {
   font-size: 1.6rem;
 }
 p.subtitle-1 {
@@ -161,6 +162,9 @@ a.clear-style:visited {
   display: block;
 }
 
+.container {
+  width: 100%;
+}
 .row {
   width: min(1200px, 100% - 4rem);
   margin-inline: auto;
@@ -196,25 +200,39 @@ a.clear-style:visited {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #333;
+  background-image: linear-gradient(to right, #ed6600, #10196b);
   color: #fff;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
 /* Sidebar */
 .sidebar {
   position: fixed;
-  top: 0;
+  top: 50px;
   left: -200px;
   width: 200px;
   height: 100%;
-  background-color: #f1f1f1;
+  background-color: whitesmoke;
   transition: left 0.3s ease-in-out;
+  z-index: 100;
+  box-shadow: 1px 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.sidebar-toggle {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+.sidebar-toggle,
+.logout {
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+}
+.sidebar-toggle:hover,
+.logout:hover {
+  outline: solid gray 2px;
+  border-radius: 4px;
 }
 
 .sidebar nav ul {
@@ -249,4 +267,43 @@ a.clear-style:visited {
   .content {
     margin-left: 0;
   }
+}
+
+/*Footer*/
+footer {
+  position: relative;
+  background: #000;
+  font-size: 1.4rem;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+}
+footer p {
+  color: #8a8a8a;
+}
+footer h3 {
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.footer-logo {
+  width: 200px;
+  margin-bottom: 20px;
+}
+.applogo {
+  margin-top: 20px;
+  display: flex;
+}
+.applogo img {
+  display: inline-block;
+  width: 48%;
+}
+footer hr {
+  border: none;
+  background: #b5b5b5;
+  height: 1px;
+  margin: 20px 0;
 }
