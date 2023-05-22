@@ -8,12 +8,14 @@
   <title>Product details - <%= product.name %></title>
 	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
 
+  <link rel="stylesheet" href="/public/css/default.css">
   <link rel="stylesheet" href="/public/css/customer.css">
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
 <body>
   <!--Header-->
-  <%- include('template/customerHeader.ejs'); %>
+  <%- include('../template/customerHeader.ejs'); %>
 
   <div class="small-container single-product">
     <div class="row">
@@ -31,11 +33,19 @@
     </div>
   </div>
 
+  <div class="small-container single-product">
+    <div class="row">
+      <h3>Description</h3>
+      <p><%= product.description %></p>
+    </div>
+  </div>
+  <br />
+
   <!--Related products--> 
   <div class="small-container">
     <div class="row row-2">
       <h2>Related Products</h2>
-      <a href="index.html"><p>View More</p></a>
+      <a href="/"><p>View More</p></a>
     </div>
   </div>
 
@@ -91,13 +101,10 @@
       </div>
     </div>
   </div>
+  <p id="product-data-text" class="hidden"><%= JSON.stringify(product) %></p>
 
   <!--Footer-->
-  <%- include('template/footer.ejs'); %>
-  <script>
-    const productData = <%= product %>;
-  </script>
+  <%- include('../template/footer.ejs'); %>
   <script src="/public/js/addToCart.js"></script>
 </body>
-</head>
 </html>

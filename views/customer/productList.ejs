@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Search products</title>
+	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
+
+  <link rel="stylesheet" href="/public/css/default.css" type="text/css">
+  <link rel="stylesheet" href="/public/css/customer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
+<body>
+  <%- include('../template/customerHeader.ejs'); %>
+
+  <div class="small-container">
+    <form id="filter-product">
+      <div class="row mb-2">
+        <div>
+          <label for="minPrice">Minimum Price</label>
+          <input class="filter" type="number" id="minPrice" name="minPrice" value="<%= minPrice %>" />
+        </div>
+        <div>
+          <label for="maxPrice">Maximum Price</label>
+          <input class="filter" type="number" id="maxPrice" name="maxPrice" value="<%= maxPrice %>" />
+        </div>
+        <button class="icon-btn" type="submit"><i class="fas fa-filter"></i></button>
+      </div>
+    </form>
+    <div class="row mb-2">
+      <% products.forEach(product => { %>
+        <div class="col-4">
+          <a href="/products/<%= product['_id'] %>">
+            <img src="/public/image/<%= product.images[0] %>" width="250px" height="250px">
+          </a>
+          <h4><%= product.name %></h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <p>$<%= product.price %></p>
+        </div>
+      <% }); %>
+    </div>
+	</div>
+
+  <%- include('../template/footer.ejs'); %>
+  <script src="/public/js/filterProducts.js"></script>
+</body>
+</html>
