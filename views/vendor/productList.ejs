@@ -4,9 +4,45 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+
+  <title>Products</title>
+	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
+
+  <link rel="stylesheet" href="/public/css/default.css" type="text/css">
+  <link rel="stylesheet" href="/public/css/customer.css" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 <body>
-  
+  <%- include('../template/header.ejs'); %>
+  <%- include('../template/sidebar.ejs', { sidebar }); %>
+
+  <div class="small-container cart-page">
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+      <% products.forEach(product => { %>
+        <tr>
+          <td>
+            <div class="cart-info">
+              <img src="/public/image/<%= product.images[0] %>" height="250px">
+              <div>
+                <p><%= product.name %></p>
+              </div>
+            </div>
+          </td>
+          <td><%= product.description %></td>
+          <td>$<%= product.price %></td>
+          <td><a href="/products/<%= product['_id'] %>">View detail</a></td>
+        </tr>
+      <% }) %>
+    </table>
+  </div>
+
+  <%- include('../template/footer.ejs'); %>
 </body>
 </html>

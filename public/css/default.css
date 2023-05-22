@@ -81,56 +81,56 @@ a.clear-style:visited {
   display: block;
 }
 .d-inline {
-  display: inline;
+  display: inline !important;
 }
 .d-inline-block {
-  display: inline-block;
+  display: inline-block !important;
 }
 
 .flex-row {
-  flex-direction: row;
+  flex-direction: row !important;
 }
 .flex-column {
-  flex-direction: column;
+  flex-direction: column !important;
 }
 
 .justify-content-center {
-  justify-content: center;
+  justify-content: center !important;
 }
 .justify-content-start {
-  justify-content: start;
+  justify-content: start !important;
 }
 .justify-content-end {
-  justify-content: end;
+  justify-content: end !important;
 }
 .justify-content-between {
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 
 .align-items-center {
-  align-items: center;
+  align-items: center !important;
 }
 .align-items-start {
-  align-items: start;
+  align-items: start !important;
 }
 .align-items-end {
-  align-items: end;
+  align-items: end !important;
 }
 .align-items-stretch {
-  align-items: stretch;
+  align-items: stretch !important;
 }
 
 .width-100 {
-  width: 100%;
+  width: 100% !important;
 }
 .width-auto {
-  width: auto;
+  width: auto !important;
 }
 .height-100 {
-  height: 100%;
+  height: 100% !important;
 }
 .height-auto {
-  height: auto;
+  height: auto !important;
 }
 
 .dropdown {
@@ -306,4 +306,8 @@ footer hr {
   background: #b5b5b5;
   height: 1px;
   margin: 20px 0;
+}
+
+.error-text {
+  color: red;
 }

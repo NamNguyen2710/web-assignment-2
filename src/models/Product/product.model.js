@@ -10,7 +10,7 @@ async function readProductsByOwnerId(ownerId) {
   return product
     .find(
       { 'owner._ownerId': new mongoose.Types.ObjectId(ownerId) },
-      { _id: 0, __v: 0 }
+      { __v: 0 }
     )
     .sort({ name: 1 });
 }

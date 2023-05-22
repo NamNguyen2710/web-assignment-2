@@ -31,6 +31,9 @@ router.use('/orders', orderRenderRoutes);
 router.get('/cart', authController(['customer']), (req, res) =>
   res.render('customer/cart.ejs')
 );
-router.use('/*', (req, res) => res.render('404.ejs'));
+router.get('/', (req, res) => res.redirect('/my-account'));
+router.use('/*', (req, res) =>
+  res.render('404.ejs', { error: null, redirectToLogin: false })
+);
 
 export default router;

@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import {
   readProductsByFilter,
   createProduct
@@ -30,7 +31,11 @@ async function httpCreateProduct(req, res) {
   try {
     const createdProduct = await createProduct({
       ...newProduct,
-      images: imageNames
+      images: imageNames,
+      owner: {
+        _ownerId: new mongoose.Types.ObjectId(req.user['_id']),
+        businessName: req.user.businessName
+      }
     });
     return res.status(201).json(createdProduct);
   } catch (err) {

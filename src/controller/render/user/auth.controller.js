@@ -22,12 +22,15 @@ function protectRender(userRoles) {
         });
 
       if (userRoles && userRoles.findIndex(role => role === user.type) === -1)
-        return res.render('404.ejs');
+        return res.render('404.ejs', { error: null, redirectToLogin: false });
 
       req.user = { ...user.toJSON() };
       next();
     } catch (err) {
-      return res.render('404.ejs', { error: err.message });
+      return res.render('404.ejs', {
+        error: err.message,
+        redirectToLogin: false
+      });
     }
   };
 }

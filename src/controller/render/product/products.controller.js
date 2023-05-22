@@ -6,7 +6,7 @@ import sidebarController from '../user/sidebar.controller.js';
 
 async function productListController(req, res) {
   const products = await readProductsByOwnerId(req.user['_id']);
-  const sidebar = sidebarController();
+  const sidebar = sidebarController(req.user.type);
 
   return res.render('vendor/productList.ejs', {
     user: req.user,
@@ -20,7 +20,7 @@ async function productDetailController(req, res) {
   const productDetail = await readProductByProductId(productId);
   const sidebar = sidebarController(req.user.type);
 
-  return res.render(`${vendor ? 'vendor' : 'customer'}/productDetail.ejs`, {
+  return res.render(`${req.user.type}/productDetail.ejs`, {
     user: req.user,
     sidebar,
     product: productDetail.toJSON()

@@ -14,34 +14,36 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 <body>
-  <%- include('../template/header.ejs', { user }); %>
+  <%- include('../template/header.ejs'); %>
   <%- include('../template/sidebar.ejs', { sidebar }); %>
 
   <section id="add-product">
     <h2>Add New Product</h2>
     <form>
       <div class="form-group">
-        <label for="product-name">Product Name</label>
-        <input type="text" id="product-name" name="product-name" required>
+        <label for="name">Product Name</label>
+        <input type="text" id="name" name="name" required>
       </div>
       
       <div class="form-group">
-        <label for="product-description">Product Description</label>
-        <textarea id="product-description" name="product-description" required></textarea>
+        <label for="description">Product Description</label>
+        <textarea id="description" name="description" required></textarea>
       </div>
       
       <div class="form-group">
-        <label for="product-price">Price</label>
-        <input type="number" id="product-price" name="product-price" step="0.01" required>
+        <label for="price">Price ($)</label>
+        <input type="number" id="price" name="price" step="0.01" required>
       </div>
       
       <div class="form-group">
-        <label for="product-image">Product Image</label>
-        <input type="file" id="product-image" name="product-image" accept="image/*" required>
+        <label for="images">Product Image</label>
+        <input type="file" id="images" name="images" accept="image/*" required>
       </div>
       
+      <small class="error-text"></small>
       <button type="submit">Add Product</button>
     </form>
+    <script src="/public/js/createProduct.js"></script>
   </section>
 
   <%- include('../template/footer.ejs'); %>
