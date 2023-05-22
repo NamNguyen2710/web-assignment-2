@@ -6,6 +6,7 @@ import {
   updateUserByUserId,
   createUser
 } from '../../../models/User/user.model.js';
+import { readAllDistributionHub } from '../../../models/DistributionHub/distributionHub.model.js';
 
 async function httpLogin(req, res) {
   const { username, password } = req.body;
@@ -25,7 +26,8 @@ async function httpLogin(req, res) {
 }
 
 async function httpSignup(req, res) {
-  const newUser = req.body;
+  const { body: newUser, imageName } = req;
+
   if (!newUser.username || !newUser.password || !newUser.type)
     return res.status(400).json({ error: 'Missing required user property' });
 
@@ -40,14 +42,24 @@ async function httpSignup(req, res) {
   )
     return res.status(400).json({ error: 'Missing required vendor property' });
 
-  if (
-    newUser.type === 'shipper' &&
-    (!newUser.distributionHub ||
-      !newUser.distributionHub.hubId ||
-      !newUser.distributionHub.name ||
-      !newUser.distributionHub.address)
-  )
-    return res.status(400).json({ error: 'Missing required shipper property' });
+  if (newUser.type === 'shipper') {
+    if (!newUser.distributionHub)
+      return res
+        .status(400)
+        .json({ error: 'Missing required shipper property' });
+
+    const distributionHubs = await readAllDistributionHub();
+    const shipperHub = distributionHubs.findIndex(
+      hub => hub.id === Number(newUser.distributionHub)
+    );
+
+    if (shipperHub === -1)
+      return res.status(400).json({ error: 'Invalid distribution hub' });
+
+    newUser.distributionHub = { ...distributionHubs[shipperHub] };
+  }
+
+  if (imageName) newUser.avatar = imageName;
 
   try {
     const createdUser = await createUser(newUser);
@@ -80,9 +92,9 @@ function protectHttp(userRoles) {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
       const user = await readUserByUserId(decoded.id);
-      if (!user) res.status(401).json({ error: 'Please login to continue' });
+      if (!user)
+        return res.status(401).json({ error: 'Please login to continue' });
 
-      console.log(user, userRoles);
       if (userRoles && userRoles.findIndex(role => role === user.type) === -1)
         return res.status(403).json({ error: 'Unauthorized access' });
 
