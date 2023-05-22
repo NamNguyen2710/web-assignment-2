@@ -1,4 +1,4 @@
-const form = document.querySelector('form');
+const form = document.querySelector('form#avatar-form');
 const avatar = document.querySelector('img#avatar');
 
 form.addEventListener('submit', e => {

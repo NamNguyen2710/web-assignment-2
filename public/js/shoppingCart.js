@@ -35,7 +35,7 @@ function renderProducts(productList) {
     cartInfo.className = 'cart-info';
 
     const productImage = document.createElement('img');
-    productImage.src = product.url;
+    productImage.src = `/public/image/${product.url}`;
     productImage.height = '250px';
 
     const productDetails = document.createElement('div');
@@ -44,9 +44,9 @@ function renderProducts(productList) {
     productName.textContent = product.name;
 
     const productPrice = document.createElement('small');
-    productPrice.textContent = 'Price: $' + product.price;
+    productPrice.textContent = 'Price: $' + product.price + '   ';
 
-    const removeLink = document.createElement('a');
+    const removeLink = document.createElement('small');
     removeLink.className = 'clickable-text';
     removeLink.textContent = 'Remove';
     removeLink.addEventListener('click', removeItemFromCart);
@@ -96,7 +96,7 @@ orderButton.addEventListener('click', e => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ products, totalPrice })
   }).then(async res => {
-    if (res.status === 200) {
+    if (res.status === 201) {
       localStorage.removeItem(cartItems);
       window.location.assign('/orders');
     }

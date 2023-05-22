@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 
 import product from './product.mongo.js';
 
-async function readProductsByFilter(filters) {
-  return product.find(filters, { __v: 0 }).sort({ name: 1 });
+async function readProductsByFilter(filters, limit = 16) {
+  return product.find(filters, { __v: 0 }).sort({ name: 1 }).limit(limit);
 }
 
 async function readProductsByOwnerId(ownerId) {
