@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Order detail</title>
+	<link rel="icon" type="image/x-icon" href="/public/image/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="/public/css/default.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/customer.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/shipper/orderDetail.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
+<body>
+  <%- include('../template/customerHeader.ejs'); %>
+
+  <section id="order-detail">
+    <h2>Order Details</h2>
+    <div class="order-info">
+      <span class="order-id">Order ID: #<%= order.id %></span>
+      <span class="order-status">Status: <%= order.status %></span>
+    </div>
+    
+    <div class="customer-info">
+      <h3>Customer Information</h3>
+      <p>Name: <%= order.customer.name %></p>
+      <p>Address: <%= order.customer.address %></p>
+    </div>
+    
+    <div class="order-items">
+      <h3>Order Items</h3>
+      <table>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+        <% order.products.forEach(product => { %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.amount %></td>
+            <td>$<%= product.price %></td>
+          </tr>
+        <% }); %>
+      </table>
+      <div class="total-price">
+        <table>
+          <tr>
+            <td>Subtotal</td>
+            <td id="subtotal-price"><%= (order.totalPrice - 35).toFixed(2) %></td>
+          </tr>
+          <tr>
+            <td>Shipping fee</td>
+            <td>$35.00</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td id="total-price">$<%= order.totalPrice.toFixed(2) %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+    <div class="shipping-status">
+      <h3>Distribution hub:</h3>
+      <p>Name: <%= order.distributionHub.name %></p>
+      <p>Address: <%= order.distributionHub.address %></p>
+    </div>
+  </section>
+
+  <%- include('../template/footer.ejs'); %>
+</body>
+</html>

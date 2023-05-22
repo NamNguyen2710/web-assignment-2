@@ -13,6 +13,6 @@ router.get(
   authController(['shipper', 'customer']),
   orderDetailController
 );
-router.get('/', authController(['vendor']), orderListController);
+router.get('/', authController(['shipper', 'customer']), orderListController);
 
 export default router;

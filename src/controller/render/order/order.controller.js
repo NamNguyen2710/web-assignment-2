@@ -15,7 +15,7 @@ async function orderListController(req, res) {
   return res.render(`${req.user.type}/orderList.ejs`, {
     user: req.user,
     sidebar,
-    orders: orders.toJSON()
+    orders
   });
 }
 

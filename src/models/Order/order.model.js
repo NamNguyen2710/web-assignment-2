@@ -6,7 +6,10 @@ const DEFAUTL_ORDER_ID = 0;
 
 async function readOrdersByHubId(hubId) {
   return order
-    .find({ 'distributionHub.hubId': hubId }, { _id: 0, __v: 0 })
+    .find(
+      { 'distributionHub.hubId': hubId, status: 'active' },
+      { _id: 0, __v: 0 }
+    )
     .sort({ id: -1 });
 }
 
@@ -25,7 +28,7 @@ async function readOrderByOrderId(orderId) {
 
 async function readLatestOrderId() {
   const latestOrder = await order.findOne().sort('-id');
-  return latestOrder.id ?? DEFAUTL_ORDER_ID;
+  return latestOrder?.id ?? DEFAUTL_ORDER_ID;
 }
 
 async function updateOrderByOrderId(newOrder) {
