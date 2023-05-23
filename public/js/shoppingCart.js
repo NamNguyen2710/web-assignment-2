@@ -97,7 +97,7 @@ orderButton.addEventListener('click', e => {
     body: JSON.stringify({ products, totalPrice })
   }).then(async res => {
     if (res.status === 201) {
-      localStorage.removeItem(cartItems);
+      localStorage.removeItem('cartItems');
       window.location.assign('/orders');
     }
 
