@@ -56,7 +56,10 @@ async function httpSignup(req, res) {
     if (shipperHub === -1)
       return res.status(400).json({ error: 'Invalid distribution hub' });
 
-    newUser.distributionHub = { ...distributionHubs[shipperHub] };
+    newUser.distributionHub = {
+      ...distributionHubs[shipperHub],
+      hubId: distributionHubs[shipperHub].id
+    };
   }
 
   if (imageName) newUser.avatar = imageName;
