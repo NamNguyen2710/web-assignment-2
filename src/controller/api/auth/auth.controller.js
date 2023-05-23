@@ -57,7 +57,7 @@ async function httpSignup(req, res) {
       return res.status(400).json({ error: 'Invalid distribution hub' });
 
     newUser.distributionHub = {
-      ...distributionHubs[shipperHub],
+      ...distributionHubs[shipperHub].toJSON(),
       hubId: distributionHubs[shipperHub].id
     };
   }
